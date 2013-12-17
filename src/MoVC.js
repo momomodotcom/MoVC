@@ -1,3 +1,22 @@
+/**
+ * Copyright (C) 2013 momomo.com <opensource@momomo.com>
+ *
+ * Licensed under the GNU LESSER GENERAL PUBLIC LICENSE, Version 3, 29 June 2007;
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.gnu.org/licenses/lgpl-3.0.txt
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * @Author Mohamed Seifeddine
+ * @Author Philip Nilsson
+ * @Author Magnus Ehdwall
+ */
 (function() {
         define ? define([], callback) : callback();
 
@@ -71,7 +90,7 @@
 
                 // TODO Continue replacing string getters
                 var CONTROLLER = "controller", ACTION = "action", ACTIONS = ACTION+"s",
-                HASHCHANGE     = "hashchange", ONHASHCHANGE = "on" + HASHCHANGE;
+                        HASHCHANGE     = "hashchange", ONHASHCHANGE = "on" + HASHCHANGE;
 
                 var cacheClasses = {};
                 var argsTrue = {
@@ -212,24 +231,24 @@
                         var request = urlSplit(url);
 
                         /* ==========================================================
-                                      PROPERTIES ADDED TO REQUEST
-                        {
-                                controllerIn
-                                actionIn
-                                plugin
-                                ControllerName               // "MyController"
-                                ControllerPath               // ".../.../MyController.js"
-                                ControllerClass              // MyController
-                                controllerInstance           // new MyController()
-                                promise
+                         PROPERTIES ADDED TO REQUEST
+                         {
+                         controllerIn
+                         actionIn
+                         plugin
+                         ControllerName               // "MyController"
+                         ControllerPath               // ".../.../MyController.js"
+                         ControllerClass              // MyController
+                         controllerInstance           // new MyController()
+                         promise
 
-                                fnAction
-                                fnBefore
-                                fnBeforeView
-                                fnAfter
+                         fnAction
+                         fnBefore
+                         fnBeforeView
+                         fnAfter
 
-                                MoVC               : that    // a reference to this instance of MoVC incase there are several
-                        }
+                         MoVC               : that    // a reference to this instance of MoVC incase there are several
+                         }
                          ========================================================== */
 
                         request.MoVC    = that;
@@ -370,11 +389,11 @@
                                                                 // To execute, this controller and action cannot be (false) present in exclude
                                                                 hasRule(request, block.exclude) != true
                                                                         ||
-                                                                // Unless it is defined explicitly in include kyk
-                                                                hasRule(request, block.include) == true
-                                                        )
+                                                                        // Unless it is defined explicitly in include kyk
+                                                                        hasRule(request, block.include) == true
+                                                                )
 
-                                                ) {
+                                                        ) {
                                                         var returns = block.filter.apply(request, args);
                                                         if ( returns === false || i == filters.length-1 ) {
                                                                 return returns;         // If false or last - return
@@ -595,8 +614,8 @@
                                         } else {
                                                 // If not a service, then possibly something else we do not care about
                                                 exceptionThrow("Error, the arguments only supports variables that ends with 'Service'!\n" +
-                                                                "Argument number '" + i + "', ie: '"+service+"' does not!\n\n" +
-                                                                "Class:\n\n" + promiseParent.Class.toString()
+                                                        "Argument number '" + i + "', ie: '"+service+"' does not!\n\n" +
+                                                        "Class:\n\n" + promiseParent.Class.toString()
                                                 )
                                         }
 
