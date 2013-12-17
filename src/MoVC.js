@@ -40,8 +40,10 @@
                 that.urlCreate = urlCreate;
                 that.urlSplit  = urlSplit;
 
-                prototypeTrim();
-                prototypeBind();
+                !function constructor() {
+                        prototypeTrim();
+                        prototypeBind();
+                }();
 
                 var optionsGlobal = that.options = {
                         isProduction                : false,
@@ -88,9 +90,8 @@
                         }
                 };
 
-                // TODO Continue replacing string getters
-                var CONTROLLER = "controller", ACTION = "action", ACTIONS = ACTION+"s",
-                        HASHCHANGE     = "hashchange", ONHASHCHANGE = "on" + HASHCHANGE;
+                // TODO Continue replacing string getters to reduce library size ( unless uglify already takes care of stuff like this which I doubt )
+                var CONTROLLER = "controller", ACTION = "action", ACTIONS = ACTION+"s", HASHCHANGE = "hashchange", ONHASHCHANGE = "on" + HASHCHANGE;
 
                 var cacheClasses = {};
                 var argsTrue = {
@@ -233,21 +234,21 @@
                         /* ==========================================================
                          PROPERTIES ADDED TO REQUEST
                          {
-                         controllerIn
-                         actionIn
-                         plugin
-                         ControllerName               // "MyController"
-                         ControllerPath               // ".../.../MyController.js"
-                         ControllerClass              // MyController
-                         controllerInstance           // new MyController()
-                         promise
+                                 controllerIn
+                                 actionIn
+                                 plugin
+                                 ControllerName               // "MyController"
+                                 ControllerPath               // ".../.../MyController.js"
+                                 ControllerClass              // MyController
+                                 controllerInstance           // new MyController()
+                                 promise
 
-                         fnAction
-                         fnBefore
-                         fnBeforeView
-                         fnAfter
+                                 fnAction
+                                 fnBefore
+                                 fnBeforeView
+                                 fnAfter
 
-                         MoVC               : that    // a reference to this instance of MoVC incase there are several
+                                 MoVC               : that    // a reference to this instance of MoVC incase there are several
                          }
                          ========================================================== */
 
